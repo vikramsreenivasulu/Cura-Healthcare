@@ -18,10 +18,14 @@ public class CuraTestCases {
 	
 	@Test()
 	public void ATTest() throws InterruptedException {
+		
+		
+		BaseClass.Sleep();
+		curafrontmethods.curafrontmethod.VerifyTitle();
 		BaseClass.Sleep();
 		curafrontmethods.curafrontmethod.CuraHelathCare();
 		BaseClass.Sleep();
-		curafrontmethods.curafrontmethod.VerifyTitle();
+		curafrontmethods.loginpage.loginpage();
 	}
 	
 }//CuraFrontTestCases
