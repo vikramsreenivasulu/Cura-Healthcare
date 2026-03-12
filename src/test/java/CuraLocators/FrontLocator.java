@@ -38,11 +38,11 @@ public class FrontLocator {
 	}//FrontPage
 	
 	public class Login{
-		public MakeAppointment makeappointment;
+		public MakeAppointmentHongKong makeappointmenthongkong;
 		
 		public Login() {
 			PageFactory.initElements(BaseClass.driver, this);
-			makeappointment = new MakeAppointment();
+			makeappointmenthongkong = new MakeAppointmentHongKong();
 		}
 		
 		@FindBy(xpath="(//input[@type='text'])[1]")
@@ -60,17 +60,19 @@ public class FrontLocator {
 		@FindBy(id="btn-login")
 		public WebElement ClickLogin;
 		
-		public class MakeAppointment{
+		public class MakeAppointmentHongKong{
 			
-			public  MakeAppointment() {
+			public VerifyHongKong verifyhongkong;
+			public  MakeAppointmentHongKong() {
 				PageFactory.initElements(BaseClass.driver, this);
+				verifyhongkong = new VerifyHongKong();
 			}
 			
 			@FindBy(id="combo_facility")
 			public WebElement Facility;
 			
 			@FindBy(id="chk_hospotal_readmission")
-			public WebElement readmission;
+			public WebElement Readmission;
 			
 			@FindBy(id="radio_program_medicare")
 			public WebElement Medicare;
@@ -79,14 +81,67 @@ public class FrontLocator {
 			public WebElement Comment;
 			
 			@FindBy(id="txt_visit_date")
-			public WebElement date;
+			public WebElement Date;
+			
+			@FindBy(id="btn-book-appointment")
+			public WebElement BookAppointment;
+			
+			public class VerifyHongKong{
+				
+				public VerifyHongKong() {
+					PageFactory.initElements(BaseClass.driver, this);
+				}
+				
+				@FindBy(id="facility")
+				public WebElement VerifyFacility ;
+				
+				@FindBy(id="hospital_readmission")
+				public WebElement VerifyReadmission ;
+				
+				@FindBy(id="program")
+				public WebElement VerifyMedicare ;
+				
+				@FindBy(id="visit_date")
+				public WebElement VerifyDate ;
+				
+				@FindBy(id="comment")
+				public WebElement VerifyCommit ;
+				
+				
+				
+			}//VerifyHongKong
+			
+		}//MakeAppointmentHongKong
+		
+		public class MakeAppointmentSeoul{
+			
+			public MakeAppointmentSeoul() {
+				PageFactory.initElements(BaseClass.driver, this);
+			}
+			
+			
 		}
 		
 	}//Login
 	
 	
 	
-	
-	
-	
 }//FrontLocator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
