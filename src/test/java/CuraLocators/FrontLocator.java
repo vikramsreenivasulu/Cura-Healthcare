@@ -38,9 +38,11 @@ public class FrontLocator {
 	}//FrontPage
 	
 	public class Login{
+		public MakeAppointment makeappointment;
 		
 		public Login() {
 			PageFactory.initElements(BaseClass.driver, this);
+			makeappointment = new MakeAppointment();
 		}
 		
 		@FindBy(xpath="(//input[@type='text'])[1]")
@@ -57,6 +59,28 @@ public class FrontLocator {
 		
 		@FindBy(id="btn-login")
 		public WebElement ClickLogin;
+		
+		public class MakeAppointment{
+			
+			public  MakeAppointment() {
+				PageFactory.initElements(BaseClass.driver, this);
+			}
+			
+			@FindBy(id="combo_facility")
+			public WebElement Facility;
+			
+			@FindBy(id="chk_hospotal_readmission")
+			public WebElement readmission;
+			
+			@FindBy(id="radio_program_medicare")
+			public WebElement Medicare;
+			
+			@FindBy(id="txt_comment")
+			public WebElement Comment;
+			
+			@FindBy(id="txt_visit_date")
+			public WebElement date;
+		}
 		
 	}//Login
 	

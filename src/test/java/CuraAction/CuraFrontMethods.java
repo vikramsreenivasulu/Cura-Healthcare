@@ -3,6 +3,7 @@ package CuraAction;
 import static org.testng.Assert.assertTrue;
 
 import org.jspecify.annotations.Nullable;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 
 import CuraLocators.FrontLocator;
@@ -67,6 +68,19 @@ public class CuraFrontMethods {
 			frontlocator.login.Password.sendKeys(attribute2);
 			frontlocator.login.ClickLogin.click();
 		}
-	}
+		
+		public void MakeAppointment(String AppointNames, String comment) throws InterruptedException {
+			
+			BaseClass.selectDropdownForSelect(frontlocator.login.makeappointment.Facility, AppointNames);
+			frontlocator.login.makeappointment.readmission.click();
+			frontlocator.login.makeappointment.Medicare.click();
+			String date = BaseClass.getDate(2);
+			frontlocator.login.makeappointment.date.sendKeys(date);
+			frontlocator.login.makeappointment.Comment.click();
+			frontlocator.login.makeappointment.Comment.sendKeys(comment);
+
+		}
+		
+	}//LogInPage
 	
 }//CuraFrontMethods

@@ -26,6 +26,8 @@ public class CuraTestCases {
 		curafrontmethods.curafrontmethod.CuraHelathCare();
 		BaseClass.Sleep();
 		curafrontmethods.loginpage.loginpage();
+		BaseClass.Sleep();
+		curafrontmethods.loginpage.MakeAppointment("Hongkong CURA Healthcare Center","Hong Kong’s healthcare system is a high-standard");
 	}
 	
 }//CuraFrontTestCases

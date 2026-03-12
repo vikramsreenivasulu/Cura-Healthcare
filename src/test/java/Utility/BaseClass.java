@@ -1,6 +1,8 @@
 package Utility;
 
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
 
 public class BaseClass {
 
@@ -60,11 +63,32 @@ public class BaseClass {
 	    dropdown.click();
 	    Sleep();
 	    Sleep();
-	    WebElement element = driver.findElement(By.xpath("//select[@id='combo_facility']/option[text()='"+ value +"']"));
+	    WebElement element = driver.findElement(By.xpath("//ui/li[text()='"+ value +"']"));
 	    element.click();
 	}
 	
+	public static void selectDropdownForSelect(WebElement dropdown, String value){
+	   Select select = new Select(dropdown);
+	   select.selectByValue(value);
+
+	}
 	
+	public static String getDate(int days) {
+
+		// Today date
+		LocalDate today = LocalDate.now();
+
+		// 2 days add
+		LocalDate futureDate = today.plusDays(days);
+
+		// Format (website date picker format batti change cheyyali)
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+		String date = futureDate.format(formatter);
+		System.out.println("Selected Date: " + date);
+		return date ;
+	}
+
 	//WAIT
 	public static void Sleep() throws InterruptedException {
 		Thread.sleep(2000);
