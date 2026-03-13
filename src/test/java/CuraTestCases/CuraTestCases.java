@@ -30,6 +30,9 @@ public class CuraTestCases {
 				"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
 		BaseClass.Sleep();
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.VerifyHongKongAppointmentDetails();
+		BaseClass.Sleep();
+		curafrontmethods.loginpage.seoulappointment.MakeSeoulAppointmentDetails("Seoul CURA Healthcare Center",
+				"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
 
 	}
 

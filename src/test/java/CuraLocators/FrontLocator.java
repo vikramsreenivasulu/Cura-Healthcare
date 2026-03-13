@@ -39,10 +39,12 @@ public class FrontLocator {
 	
 	public class Login{
 		public MakeAppointmentHongKong makeappointmenthongkong;
+		public MakeAppointmentSeoul makeappointmentseoul;
 		
 		public Login() {
 			PageFactory.initElements(BaseClass.driver, this);
 			makeappointmenthongkong = new MakeAppointmentHongKong();
+			makeappointmentseoul = new MakeAppointmentSeoul();
 		}
 		
 		@FindBy(xpath="(//input[@type='text'])[1]")
@@ -115,13 +117,59 @@ public class FrontLocator {
 		
 		public class MakeAppointmentSeoul{
 			
+			public VerifySeoul verifyseoul;
+			
+			
 			public MakeAppointmentSeoul() {
 				PageFactory.initElements(BaseClass.driver, this);
+				verifyseoul = new VerifySeoul();
 			}
 			
+			@FindBy(id="combo_facility")
+			public WebElement Facility;
+			
+			@FindBy(id="chk_hospotal_readmission")
+			public WebElement Readmission;
+			
+			@FindBy(id="radio_program_medicaid")
+			public WebElement Medicaid;
+			
+			@FindBy(id="txt_comment")
+			public WebElement Comment;
+			
+			@FindBy(id="txt_visit_date")
+			public WebElement Date;
+			
+			@FindBy(id="btn-book-appointment")
+			public WebElement BookAppointment;
 			
 			
-		}
+			public class VerifySeoul{
+				
+				public VerifySeoul() {
+					PageFactory.initElements(BaseClass.driver, this);
+				}
+				
+				@FindBy(id="facility")
+				public WebElement VerifyFacility ;
+				
+				@FindBy(id="hospital_readmission")
+				public WebElement VerifyReadmission ;
+				
+				@FindBy(id="program")
+				public WebElement VerifyMedicaid ;
+				
+				@FindBy(id="visit_date")
+				public WebElement VerifyDate ;
+				
+				@FindBy(id="comment")
+				public WebElement VerifyCommit ;
+				
+				
+				
+			}//VerifySeoul
+			
+		}//MakeAppointmentSeoul
 		
 	}//Login
 	

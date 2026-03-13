@@ -57,9 +57,11 @@ public class CuraFrontMethods {
 	public class LogInPage {
 
 		public HongKongAppointment hongkongappointment;
+		public SeoulAppointment seoulappointment;
 
 		public LogInPage() {
 			hongkongappointment = new HongKongAppointment();
+			seoulappointment = new SeoulAppointment();
 		}
 
 		public void loginpage() {
@@ -142,6 +144,71 @@ public class CuraFrontMethods {
 
 			
 		}// HongKongAppointment
+		
+		
+		public class SeoulAppointment{
+			
+			public VerifySeoulAppointment verifyseoulappointment;
+			
+			public SeoulAppointment() {
+				verifyseoulappointment = new VerifySeoulAppointment();
+			}
+			
+			public void MakeSeoulAppointmentDetails(String AppointName, String comment) throws InterruptedException {
+				BaseClass.selectDropdownForSelect(frontlocator.login.makeappointmentseoul.Facility, AppointName);
+				BaseClass.Sleep();
+				frontlocator.login.makeappointmentseoul.Readmission.click();
+				BaseClass.Sleep();
+				frontlocator.login.makeappointmentseoul.Medicaid.click();
+				BaseClass.Sleep();
+				String date = BaseClass.getDate(2);
+				frontlocator.login.makeappointmentseoul.Date.sendKeys(date);
+				BaseClass.Sleep();
+				frontlocator.login.makeappointmentseoul.Comment.click();
+				BaseClass.Sleep();
+				frontlocator.login.makeappointmentseoul.Comment.sendKeys(comment);
+				BaseClass.Sleep();
+				frontlocator.login.makeappointmentseoul.BookAppointment.click();
+				
+			}//MakeSeoulAppointmentDetails
+			
+			public class VerifySeoulAppointment{
+				
+				public void VerifySeoulAppointmentDetails() {
+					
+					String Facility = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyFacility.getText();
+					System.out.println("Verify Facility:" + Facility);
+					Assert.assertEquals(Facility, "Seoul CURA Healthcare Center");
+					
+					// ReadMission
+					String ReadMission = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyReadmission
+							.getText();
+					System.out.println("Verify ReadMission:" + ReadMission);
+					Assert.assertEquals(ReadMission, "Yes");
+
+					// HealthcareProgram
+					String HealthcareProgram = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyMedicaid
+							.getText();
+					System.out.println("Verify HealthcareProgram:" + HealthcareProgram);
+					Assert.assertEquals(HealthcareProgram, "Medicaid");
+
+					// Visitdate
+					String Visitdate = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyDate.getText();
+					System.out.println("Verify Visitdate:" + Visitdate);
+					Assert.assertEquals(Visitdate, "15/03/2026");
+
+					// Comment
+					String Comment = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyCommit.getText();
+					System.out.println("Verify Comment:" + Comment);
+					Assert.assertEquals(Comment,
+							"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
+
+					
+				}//VerifySeoulAppointmentDetails
+				
+			}//VerifySeoulAppointment
+			
+		}//SeoulAppointment
 		
 	}// LogInPage
 	
