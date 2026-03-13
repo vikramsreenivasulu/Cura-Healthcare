@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 import CuraLocators.FrontLocator;
 import Utility.BaseClass;
@@ -83,15 +84,21 @@ public class CuraFrontMethods {
 				verifyHongKongAppointment = new VerifyHongKongAppointment();
 			}
 
-			public void MakeAppointmentHongKongDetails(String AppointNames, String comment) {
+			public void MakeAppointmentHongKongDetails(String AppointNames, String comment) throws InterruptedException {
 
 				BaseClass.selectDropdownForSelect(frontlocator.login.makeappointmenthongkong.Facility, AppointNames);
+				BaseClass.Sleep();
 				frontlocator.login.makeappointmenthongkong.Readmission.click();
+				BaseClass.Sleep();
 				frontlocator.login.makeappointmenthongkong.Medicare.click();
+				BaseClass.Sleep();
 				String date = BaseClass.getDate(2);
 				frontlocator.login.makeappointmenthongkong.Date.sendKeys(date);
+				BaseClass.Sleep();
 				frontlocator.login.makeappointmenthongkong.Comment.click();
+				BaseClass.Sleep();
 				frontlocator.login.makeappointmenthongkong.Comment.sendKeys(comment);
+				BaseClass.Sleep();
 				frontlocator.login.makeappointmenthongkong.BookAppointment.click();
 
 			}// MakeAppointmentHongKong
@@ -99,15 +106,45 @@ public class CuraFrontMethods {
 			public class VerifyHongKongAppointment {
 
 				public void VerifyHongKongAppointmentDetails() {
+					// facility
+					String Facility = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyFacility
+							.getText();
+					System.out.println("Verify Facility:" + Facility);
+					Assert.assertEquals(Facility, "Hongkong CURA Healthcare Center");
 
-				}
+					// ReadMission
+					String ReadMission = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyReadmission
+							.getText();
+					System.out.println("Verify ReadMission:" + ReadMission);
+					Assert.assertEquals(ReadMission, "Yes");
 
-			}//VerifyHongKongAppointment
+					// HealthcareProgram
+					String HealthcareProgram = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyMedicare
+							.getText();
+					System.out.println("Verify HealthcareProgram:" + HealthcareProgram);
+					Assert.assertEquals(HealthcareProgram, "Medicare");
 
-		}//HongKongAppointment
-	}//LogInPage
-}
+					// Visitdate
+					String Visitdate = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyDate.getText();
+					System.out.println("Verify Visitdate:" + Visitdate);
+					Assert.assertEquals(Visitdate, "15/03/2026");
 
-// LogInPage
+					// Comment
+					String Comment = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyCommit.getText();
+					System.out.println("Verify Comment:" + Comment);
+					Assert.assertEquals(Comment,
+							"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
 
-//CuraFrontMethods
+				}//VerifyHongKongAppointmentDetails
+
+				
+			}// VerifyHongKongAppointment
+
+			
+		}// HongKongAppointment
+		
+	}// LogInPage
+	
+}//CuraFrontMethods
+
+
