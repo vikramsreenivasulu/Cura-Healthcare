@@ -2,19 +2,52 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-13T16:25:54 IST" name="Default suite" finished-at="2026-03-13T16:26:21 IST" duration-ms="26190">
+  <suite started-at="2026-04-22T16:59:28 IST" name="Default suite" finished-at="2026-04-22T17:00:24 IST" duration-ms="55511">
     <groups>
     </groups>
-    <test started-at="2026-03-13T16:25:54 IST" name="Default test" finished-at="2026-03-13T16:26:21 IST" duration-ms="26190">
+    <test started-at="2026-04-22T16:59:28 IST" name="Default test" finished-at="2026-04-22T17:00:24 IST" duration-ms="55511">
       <class name="CuraTestCases.CuraTestCases">
-        <test-method is-config="true" signature="BeforeSuite()[pri:0, instance:CuraTestCases.CuraTestCases@40a4337a]" started-at="2026-03-13T16:25:49 IST" name="BeforeSuite" finished-at="2026-03-13T16:25:54 IST" duration-ms="5257" status="PASS">
+        <test-method is-config="true" signature="BeforeSuite()[pri:0, instance:CuraTestCases.CuraTestCases@44c03695]" started-at="2026-04-22T16:59:19 IST" name="BeforeSuite" finished-at="2026-04-22T16:59:28 IST" duration-ms="9148" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BeforeSuite -->
-        <test-method signature="ATTest()[pri:0, instance:CuraTestCases.CuraTestCases@40a4337a]" started-at="2026-03-13T16:25:54 IST" name="ATTest" finished-at="2026-03-13T16:26:21 IST" duration-ms="26152" status="PASS">
+        <test-method signature="ATTest()[pri:0, instance:CuraTestCases.CuraTestCases@44c03695]" started-at="2026-04-22T16:59:28 IST" name="ATTest" finished-at="2026-04-22T17:00:24 IST" duration-ms="55422" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ATTest -->
+        <test-method is-config="true" signature="AfterSuite(org.testng.ITestResult)[pri:0, instance:CuraTestCases.CuraTestCases@44c03695]" started-at="2026-04-22T17:00:24 IST" name="AfterSuite" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1776857424162" status="FAIL">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Native Injection is NOT supported for @AfterSuite annotated AfterSuite.
+For more information on native dependency injection please refer to https://testng.org/#_dependency_injection]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Native Injection is NOT supported for @AfterSuite annotated AfterSuite.
+For more information on native dependency injection please refer to https://testng.org/#_dependency_injection
+at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:442)
+at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:347)
+at org.testng.internal.Parameters.createParameters(Parameters.java:699)
+at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:163)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:313)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:386)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterSuite -->
       </class> <!-- CuraTestCases.CuraTestCases -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

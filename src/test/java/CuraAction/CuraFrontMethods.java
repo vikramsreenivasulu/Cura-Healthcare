@@ -59,9 +59,11 @@ public class CuraFrontMethods {
 		public HongKongAppointment hongkongappointment;
 		public SeoulAppointment seoulappointment;
 
+		public HomePage homepage;
 		public LogInPage() {
 			hongkongappointment = new HongKongAppointment();
 			seoulappointment = new SeoulAppointment();
+			homepage = new HomePage();
 		}
 
 		public void loginpage() {
@@ -129,7 +131,7 @@ public class CuraFrontMethods {
 					// Visitdate
 					String Visitdate = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyDate.getText();
 					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, "15/03/2026");
+					Assert.assertEquals(Visitdate, "24/04/2026");
 
 					// Comment
 					String Comment = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyCommit.getText();
@@ -145,6 +147,12 @@ public class CuraFrontMethods {
 			
 		}// HongKongAppointment
 		
+		public class  HomePage{
+			
+			public void ClickHomePage() {
+				frontlocator.login.homepage.ClickHomePageButton.click();
+			}
+		}
 		
 		public class SeoulAppointment{
 			
@@ -195,7 +203,7 @@ public class CuraFrontMethods {
 					// Visitdate
 					String Visitdate = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyDate.getText();
 					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, "15/03/2026");
+					Assert.assertEquals(Visitdate, "24/04/2026");
 
 					// Comment
 					String Comment = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyCommit.getText();

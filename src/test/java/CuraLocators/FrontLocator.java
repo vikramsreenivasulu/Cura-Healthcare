@@ -39,11 +39,15 @@ public class FrontLocator {
 	
 	public class Login{
 		public MakeAppointmentHongKong makeappointmenthongkong;
+		
+		public HomePage homepage;
 		public MakeAppointmentSeoul makeappointmentseoul;
+		
 		
 		public Login() {
 			PageFactory.initElements(BaseClass.driver, this);
 			makeappointmenthongkong = new MakeAppointmentHongKong();
+			homepage = new HomePage();
 			makeappointmentseoul = new MakeAppointmentSeoul();
 		}
 		
@@ -114,6 +118,17 @@ public class FrontLocator {
 			}//VerifyHongKong
 			
 		}//MakeAppointmentHongKong
+		
+		public class HomePage{
+			
+			public HomePage() {
+				PageFactory.initElements(BaseClass.driver, this);
+			}
+			
+			@FindBy(xpath="//a[@class='btn btn-default']")
+			public WebElement ClickHomePageButton;
+			
+		}//HomePage
 		
 		public class MakeAppointmentSeoul{
 			
