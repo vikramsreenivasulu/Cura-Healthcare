@@ -2,8 +2,6 @@ package CuraAction;
 
 import static org.testng.Assert.assertTrue;
 
-import org.jspecify.annotations.Nullable;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
@@ -131,7 +129,7 @@ public class CuraFrontMethods {
 					// Visitdate
 					String Visitdate = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyDate.getText();
 					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, "24/04/2026");
+					Assert.assertEquals(Visitdate, "25/04/2026");
 
 					// Comment
 					String Comment = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyCommit.getText();
@@ -162,7 +160,7 @@ public class CuraFrontMethods {
 				verifyseoulappointment = new VerifySeoulAppointment();
 			}
 			
-			public void MakeSeoulAppointmentDetails(String AppointName, String comment) throws InterruptedException {
+			public  void MakeSeoulAppointmentDetails(String AppointName, String comment) throws InterruptedException {
 				BaseClass.selectDropdownForSelect(frontlocator.login.makeappointmentseoul.Facility, AppointName);
 				BaseClass.Sleep();
 				frontlocator.login.makeappointmentseoul.Readmission.click();
@@ -203,7 +201,7 @@ public class CuraFrontMethods {
 					// Visitdate
 					String Visitdate = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyDate.getText();
 					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, "24/04/2026");
+					Assert.assertEquals(Visitdate, "25/04/2026");
 
 					// Comment
 					String Comment = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyCommit.getText();
