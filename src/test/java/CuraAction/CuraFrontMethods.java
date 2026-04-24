@@ -129,7 +129,7 @@ public class CuraFrontMethods {
 					// Visitdate
 					String Visitdate = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyDate.getText();
 					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, "25/04/2026");
+					Assert.assertEquals(Visitdate, "26/04/2026");
 
 					// Comment
 					String Comment = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyCommit.getText();
@@ -201,7 +201,7 @@ public class CuraFrontMethods {
 					// Visitdate
 					String Visitdate = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyDate.getText();
 					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, "25/04/2026");
+					Assert.assertEquals(Visitdate, "26/04/2026");
 
 					// Comment
 					String Comment = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyCommit.getText();
