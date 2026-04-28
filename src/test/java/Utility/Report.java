@@ -2,6 +2,8 @@ package Utility;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -59,16 +61,14 @@ public class Report{
 
 	}
 	
-
-	
 	public static void logInfo(String info) {
-	    extentTest.info(info);
-	    
-	    // ✅ Combine info text + timestamp as filename
-	    String fileName = info.replaceAll("[^a-zA-Z0-9]", "_");// + "_" + System.currentTimeMillis();
-	    String screenshotPath = caputreScreenshot(fileName);
-	    extentTest.pass("Screenshot",
-	            MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		extentTest.info(info);
+
+		String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
+		String fileName = info + "_" + timeStamp;
+		String screenshotPath = caputreScreenshot(fileName);
+
+		extentTest.pass("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 	}
 	
 	public static String caputreScreenshot(String fileName) {
@@ -77,7 +77,7 @@ public class Report{
 
 	    String projectRoot = System.getProperty("user.dir");
 	    
-	    // ✅ Save screenshot relative to Reports folder
+	    // Save screenshot relative to Reports folder
 	    String relativePath = ".." + File.separator + "Screenshots" + File.separator + fileName + ".png";
 	    String absolutePath = projectRoot + File.separator + "Screenshots" + File.separator + fileName + ".png";
 
@@ -90,7 +90,7 @@ public class Report{
 	        e.printStackTrace();
 	    }
 
-	    return relativePath; // ✅ Return relative path for HTML rendering
+	    return relativePath; // Return relative path for HTML
 	}
 	
 }
