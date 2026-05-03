@@ -33,12 +33,44 @@ public class Report{
 		extentSparkReporter.config().setEncoding("utf-8");
 		
 		
+		
 		extentReports= new ExtentReports();
 		extentReports.setSystemInfo("Name", "Vikram");
 		extentReports.setSystemInfo("Team", "Automation Team");
 		extentReports.setSystemInfo("System", "CPLBNGLPT103");
 		extentReports.attachReporter(extentSparkReporter);
 
+		
+		extentSparkReporter.config().setCss(
+
+				/* ===== GLOBAL FONT & CLEAN UI ===== */
+				"body { font-family: 'Segoe UI', sans-serif; }" +
+
+				/* ===== TEST BLOCK (LEFT PANEL) ===== */
+				".test-item.pass { background: linear-gradient(90deg, #1f4037, #99f2c9) !important; color:black !important; border-radius:10px; }" +
+
+				/* ===== NODE (Login Page / Login Issue) ===== */
+				".card { border-radius:12px !important; overflow:hidden; margin-bottom:15px; }" +
+				".card-header { border-radius:12px !important; }" +
+
+				/* ===== PASS NODE GREEN ===== */
+				".card-header:has(.pass-bg) { background: linear-gradient(90deg, #00b09b, #96c93d) !important; color:white !important; }" +
+
+				/* ===== FAIL NODE RED ===== */
+				".card-header:has(.fail-bg) { background: linear-gradient(90deg, #cb2d3e, #ef473a) !important; color:white !important; }" +
+
+				/* ===== LOG ROWS ===== */
+				".event-row:hover { background-color: rgba(255,255,255,0.05); }" +
+
+				/* ===== BADGES ===== */
+				".pass-bg { background-color: #28a745 !important; }" +
+				".fail-bg { background-color: #dc3545 !important; }" +
+				".info-bg { background-color: #17a2b8 !important; }" +
+
+				/* ===== SCREENSHOT BORDER ===== */
+				"img { border-radius:8px; border:1px solid #444; }"
+
+				);
 	}
 	
 	public static void createTest(String testName) {
@@ -72,7 +104,7 @@ public class Report{
 	}
 	
 	public static String caputreScreenshot(String fileName) {
-	    TakesScreenshot ts = (TakesScreenshot) BaseClass.driver;
+	    TakesScreenshot ts = (TakesScreenshot) BaseClass_CuraHealthcare.driver;
 	    File srcFile = ts.getScreenshotAs(OutputType.FILE);
 
 	    String projectRoot = System.getProperty("user.dir");
@@ -91,7 +123,7 @@ public class Report{
 	    }
 
 	    return relativePath; // Return relative path for HTML
-	}
+	}//caputreScreenshot
 	
 }
 

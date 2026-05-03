@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import Utility.BaseClass;
+import Utility.BaseClass_CuraHealthcare;
 
 public class FrontLocator {
 	
@@ -21,7 +21,7 @@ public class FrontLocator {
 	public class FrontPage{
 		
 		public FrontPage() {
-			PageFactory.initElements(BaseClass.driver, this);
+			PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 		}
 		
 		@FindBy(xpath="//i[@class='fa fa-bars']")
@@ -45,7 +45,7 @@ public class FrontLocator {
 		
 		
 		public Login() {
-			PageFactory.initElements(BaseClass.driver, this);
+			PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 			makeappointmenthongkong = new MakeAppointmentHongKong();
 			homepage = new HomePage();
 			makeappointmentseoul = new MakeAppointmentSeoul();
@@ -70,7 +70,7 @@ public class FrontLocator {
 			
 			public VerifyHongKong verifyhongkong;
 			public  MakeAppointmentHongKong() {
-				PageFactory.initElements(BaseClass.driver, this);
+				PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 				verifyhongkong = new VerifyHongKong();
 			}
 			
@@ -95,7 +95,7 @@ public class FrontLocator {
 			public class VerifyHongKong{
 				
 				public VerifyHongKong() {
-					PageFactory.initElements(BaseClass.driver, this);
+					PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 				}
 				
 				@FindBy(id="facility")
@@ -122,7 +122,7 @@ public class FrontLocator {
 		public class HomePage{
 			
 			public HomePage() {
-				PageFactory.initElements(BaseClass.driver, this);
+				PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 			}
 			
 			@FindBy(xpath="//a[@class='btn btn-default']")
@@ -136,7 +136,7 @@ public class FrontLocator {
 			
 			
 			public MakeAppointmentSeoul() {
-				PageFactory.initElements(BaseClass.driver, this);
+				PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 				verifyseoul = new VerifySeoul();
 			}
 			
@@ -162,7 +162,7 @@ public class FrontLocator {
 			public class VerifySeoul{
 				
 				public VerifySeoul() {
-					PageFactory.initElements(BaseClass.driver, this);
+					PageFactory.initElements(BaseClass_CuraHealthcare.driver, this);
 				}
 				
 				@FindBy(id="facility")

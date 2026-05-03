@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import CuraLocators.FrontLocator;
-import Utility.BaseClass;
+import Utility.BaseClass_CuraHealthcare;
 
 public class CuraFrontMethods {
 
@@ -25,15 +25,15 @@ public class CuraFrontMethods {
 
 		public void CuraHelathCare() throws InterruptedException {
 			frontlocator.frontpage.CuraHelathCare.click();
-			BaseClass.Sleep();
+			BaseClass_CuraHealthcare.Sleep();
 			// frontlocator.frontpage.CuraHelathCare.click();
 
 			// ***************** Hover **********************
-			Actions HH = new Actions(BaseClass.driver);
+			Actions HH = new Actions(BaseClass_CuraHealthcare.driver);
 			HH.moveToElement(frontlocator.frontpage.HomeHover).build().perform();
 
 			// ***************** Hover **********************
-			Actions LH = new Actions(BaseClass.driver);
+			Actions LH = new Actions(BaseClass_CuraHealthcare.driver);
 			LH.moveToElement(frontlocator.frontpage.LoginHover).build().perform();
 
 			frontlocator.frontpage.LoginHover.click();
@@ -88,19 +88,19 @@ public class CuraFrontMethods {
 
 			public void MakeAppointmentHongKongDetails(String AppointNames, String comment) throws InterruptedException {
 
-				BaseClass.selectDropdownForSelect(frontlocator.login.makeappointmenthongkong.Facility, AppointNames);
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.selectDropdownForSelect(frontlocator.login.makeappointmenthongkong.Facility, AppointNames);
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmenthongkong.Readmission.click();
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmenthongkong.Medicare.click();
-				BaseClass.Sleep();
-				String date = BaseClass.getDate(2);
+				BaseClass_CuraHealthcare.Sleep();
+				String date = BaseClass_CuraHealthcare.getDate(2);
 				frontlocator.login.makeappointmenthongkong.Date.sendKeys(date);
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmenthongkong.Comment.click();
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmenthongkong.Comment.sendKeys(comment);
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmenthongkong.BookAppointment.click();
 
 			}// MakeAppointmentHongKong
@@ -161,19 +161,19 @@ public class CuraFrontMethods {
 			}
 			
 			public  void MakeSeoulAppointmentDetails(String AppointName, String comment) throws InterruptedException {
-				BaseClass.selectDropdownForSelect(frontlocator.login.makeappointmentseoul.Facility, AppointName);
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.selectDropdownForSelect(frontlocator.login.makeappointmentseoul.Facility, AppointName);
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmentseoul.Readmission.click();
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmentseoul.Medicaid.click();
-				BaseClass.Sleep();
-				String date = BaseClass.getDate(2);
+				BaseClass_CuraHealthcare.Sleep();
+				String date = BaseClass_CuraHealthcare.getDate(2);
 				frontlocator.login.makeappointmentseoul.Date.sendKeys(date);
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmentseoul.Comment.click();
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmentseoul.Comment.sendKeys(comment);
-				BaseClass.Sleep();
+				BaseClass_CuraHealthcare.Sleep();
 				frontlocator.login.makeappointmentseoul.BookAppointment.click();
 				
 			}//MakeSeoulAppointmentDetails

@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 
-public class BaseClass {
+public class BaseClass_CuraHealthcare {
 
 	//URL
 	public static String url = "https://katalon-demo-cura.herokuapp.com/";
