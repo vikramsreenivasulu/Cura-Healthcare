@@ -24,6 +24,7 @@ public class CuraTestCases {
 
 		
 		Report.createTest("HealthCare TestCase");
+		Report.createnode("HealthCare Login");
 		Report.logInfo("Test started");
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.curafrontmethod.VerifyTitle();

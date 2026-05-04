@@ -22,6 +22,8 @@ public class Report{
 	public static ExtentReports extentReports;
 	
 	public static ExtentTest extentTest;
+	
+	public static  ExtentTest node;
 	public static void startReport() {
 
 		extentSparkReporter = new ExtentSparkReporter(
@@ -78,13 +80,16 @@ public class Report{
 
 	}
 	
+	public static void createnode(String testName) {
+		node = extentTest.createNode(testName);
+	}
 	public static void pass(String testName) {
-		extentTest.pass(testName);
+		node.pass(testName);
 
 	}
 	
 	public static void fail(String testName) {
-		extentTest.fail(testName);
+		node.fail(testName);
 
 	}
 	
@@ -94,13 +99,13 @@ public class Report{
 	}
 	
 	public static void logInfo(String info) {
-		extentTest.info(info);
+		node.info(info);
 
 		String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss"));
 		String fileName = info + "_" + timeStamp;
 		String screenshotPath = caputreScreenshot(fileName);
 
-		extentTest.pass("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		node.pass("Screenshot", MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
 	}
 	
 	public static String caputreScreenshot(String fileName) {
