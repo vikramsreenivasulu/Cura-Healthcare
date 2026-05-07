@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import CuraAction.CuraFrontMethods;
 import Utility.BaseClass_CuraHealthcare;
 import Utility.Report;
+import Utility.Verify;
 
 public class CuraTestCases {
 
@@ -15,15 +16,18 @@ public class CuraTestCases {
 	@BeforeSuite
 	public void BeforeSuite() {
 		BaseClass_CuraHealthcare.startdriver();
-		 Report.startReport();
+		Verify.restAssertion();
+		Report.startReport();
 		curafrontmethods = new CuraFrontMethods();
 	}
 
 	@Test()
 	public void ATTest() throws InterruptedException {
 
-		
+		// Report started here//
 		Report.createTest("HealthCare TestCase");
+
+		// Node started here//
 		Report.createnode("HealthCare Login");
 		Report.logInfo("Test started");
 		BaseClass_CuraHealthcare.Sleep();
@@ -33,30 +37,43 @@ public class CuraTestCases {
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.loginpage();
 		Report.pass("Login_Successfull");
-//		 Report.pass("Test passed");
+		Report.createnode("HongKong Appointment");
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.hongkongappointment.MakeAppointmentHongKongDetails("Hongkong CURA Healthcare Center",
 				"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
-		
+
 		BaseClass_CuraHealthcare.Sleep();
-		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.VerifyHongKongAppointmentDetails();
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment
+				.VerifyHealthCareCenter("Hongkong CURA Healthcare Center");
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.ReadMission("Yes");
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.HealthcareProgram("Medicare");
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.Visitdate();
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.Commet(
+				"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
 		Report.logInfo("Verify_HongKong_Appointment_Details");
 		Report.pass("Verify HongKong Details Successfull");
-	//s	Report.fail("If it is fail the issue is date");
+
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.homepage.ClickHomePage();
+		Report.createnode("Seoul Appointment");
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.seoulappointment.MakeSeoulAppointmentDetails("Seoul CURA Healthcare Center",
 				"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
 		BaseClass_CuraHealthcare.Sleep();
-		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.VerifySeoulAppointmentDetails();
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment
+				.VerifyHealthCareCenter("Seoul CURA Healthcare Center");
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.ReadMission("Yes");
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.HealthcareProgram("Medicaid");
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.Visitdate();
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.Commet(
+				"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
 		Report.logInfo("Verify_Seoul_Appointment_Details");
 		Report.pass("Verify HongKong Details Successfull");
-	//	Report.fail("If it is fail the issue is date");
-		
+
 		Report.pass("All Test Cases Pass");
+		Verify.assertAll();
 	}
-	
+
 	@AfterSuite()
 	public void AfterSuite() {
 		BaseClass_CuraHealthcare.StopDriver();

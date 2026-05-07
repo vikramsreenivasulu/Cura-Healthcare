@@ -7,6 +7,7 @@ import org.testng.Assert;
 
 import CuraLocators.FrontLocator;
 import Utility.BaseClass_CuraHealthcare;
+import Utility.Verify;
 
 public class CuraFrontMethods {
 
@@ -107,37 +108,63 @@ public class CuraFrontMethods {
 
 			public class VerifyHongKongAppointment {
 
-				public void VerifyHongKongAppointmentDetails() {
+				public VerifyHongKongAppointment() {
+					
+				}
+				public void VerifyHealthCareCenter(String expected) {
 					// facility
-					String Facility = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyFacility
+					String actual = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyFacility
 							.getText();
-					System.out.println("Verify Facility:" + Facility);
-					Assert.assertEquals(Facility, "Hongkong CURA Healthcare Center");
-
-					// ReadMission
-					String ReadMission = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyReadmission
+					System.out.println("Verify Facility:" + actual);
+					Verify.verifyEquals(actual, expected);
+					
+					//Assert.assertEquals(Facility, "Hongkong CURA Healthcare Center");
+				}
+				
+				// ReadMission
+				public void ReadMission(String expected) {
+					String actual = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyReadmission
 							.getText();
-					System.out.println("Verify ReadMission:" + ReadMission);
-					Assert.assertEquals(ReadMission, "Yes");
+					System.out.println("Verify ReadMission:" + actual);
+					//Assert.assertEquals(ReadMission, "Yes");
+					
+					Verify.verifyEquals(actual, expected);
+					
+				}
+					
 
 					// HealthcareProgram
-					String HealthcareProgram = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyMedicare
-							.getText();
-					System.out.println("Verify HealthcareProgram:" + HealthcareProgram);
-					Assert.assertEquals(HealthcareProgram, "Medicare");
+					public void HealthcareProgram(String expected) {
+						String actual = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyMedicare
+								.getText();
+						System.out.println("Verify HealthcareProgram:" + actual);
+						//Assert.assertEquals(HealthcareProgram, "Medicare");
+						
+						Verify.verifyEquals(actual, expected);
+					}
+					
 
 					// Visitdate
-					String Visitdate = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyDate.getText();
-					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, Visitdate);
+					public void Visitdate() {
+					    
+					    String actual = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyDate.getText();
+					    
+					    System.out.println("Verify Visitdate: " + actual);
+
+					    // actual ni expected ga use chestunnam
+					    Verify.verifyEquals(actual, actual);
+					}
+					
 
 					// Comment
-					String Comment = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyCommit.getText();
-					System.out.println("Verify Comment:" + Comment);
-					Assert.assertEquals(Comment,
-							"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
+					public void Commet(String expected) {
+						String actual = frontlocator.login.makeappointmenthongkong.verifyhongkong.VerifyCommit.getText();
+						System.out.println("Verify Comment:" + actual);
+						//Assert.assertEquals(actual,
+								//"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
 
-				}//VerifyHongKongAppointmentDetails
+						Verify.verifyEquals(actual, expected);
+					}
 
 				
 			}// VerifyHongKongAppointment
@@ -180,44 +207,64 @@ public class CuraFrontMethods {
 			
 			public class VerifySeoulAppointment{
 				
-				public void VerifySeoulAppointmentDetails() {
+				public  VerifySeoulAppointment() {
 					
-					String Facility = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyFacility.getText();
-					System.out.println("Verify Facility:" + Facility);
-					Assert.assertEquals(Facility, "Seoul CURA Healthcare Center");
+				}
+					public void VerifyHealthCareCenter(String expected) {
+						String actual = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyFacility.getText();
+						System.out.println("Verify Facility:" + actual);
+						//Assert.assertEquals(actual, "Seoul CURA Healthcare Center");
+						
+						Verify.verifyEquals(actual, expected);
+					}
 					
 					// ReadMission
-					String ReadMission = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyReadmission
-							.getText();
-					System.out.println("Verify ReadMission:" + ReadMission);
-					Assert.assertEquals(ReadMission, "Yes");
+					public void ReadMission(String expected) {
+						String actual = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyReadmission
+								.getText();
+						System.out.println("Verify ReadMission:" + actual);
+						//Assert.assertEquals(ReadMission, "Yes");
+						
+						Verify.verifyEquals(actual, expected);
+					}
+					
 
 					// HealthcareProgram
-					String HealthcareProgram = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyMedicaid
-							.getText();
-					System.out.println("Verify HealthcareProgram:" + HealthcareProgram);
-					Assert.assertEquals(HealthcareProgram, "Medicaid");
+					public void HealthcareProgram(String expected) {
+						String actual = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyMedicaid
+								.getText();
+						System.out.println("Verify HealthcareProgram:" + actual);
+						//Assert.assertEquals(actual, "Medicaid");
+						
+						Verify.verifyEquals(actual, expected);
+					}
 
 					// Visitdate
-					String Visitdate = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyDate.getText();
-					System.out.println("Verify Visitdate:" + Visitdate);
-					Assert.assertEquals(Visitdate, Visitdate);
+					public void Visitdate() {
+						String actual = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyDate.getText();
+						System.out.println("Verify Visitdate:" + actual);
+						//Assert.assertEquals(actual, Visitdate);
+						
+						Verify.verifyEquals(actual, actual);
+					}
+					
 
 					// Comment
-					String Comment = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyCommit.getText();
-					System.out.println("Verify Comment:" + Comment);
-					Assert.assertEquals(Comment,
-							"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
+					public void Commet(String expected) {
+						String actual = frontlocator.login.makeappointmentseoul.verifyseoul.VerifyCommit.getText();
+						System.out.println("Verify Comment:" + actual);
+						//Assert.assertEquals(actual,
+								//"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
 
-					
-				}//VerifySeoulAppointmentDetails
+						Verify.verifyEquals(actual, expected);
+					}
 				
 			}//VerifySeoulAppointment
 			
 		}//SeoulAppointment
 		
 	}// LogInPage
-	
+
 }//CuraFrontMethods
 
 
