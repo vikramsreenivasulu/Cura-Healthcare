@@ -1,5 +1,7 @@
 package CuraTestCases;
 
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
@@ -28,7 +30,7 @@ public class CuraTestCases {
 		Report.createTest("HealthCare TestCase");
 
 		// Node started here//
-		Report.createnode("HealthCare Login");
+		Report.createNode("HealthCare Login");
 		Report.logInfo("Test started");
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.curafrontmethod.VerifyTitle();
@@ -37,7 +39,7 @@ public class CuraTestCases {
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.loginpage();
 		Report.pass("Login_Successfull");
-		Report.createnode("HongKong Appointment");
+		Report.createNode("HongKong Appointment");
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.hongkongappointment.MakeAppointmentHongKongDetails("Hongkong CURA Healthcare Center",
 				"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
@@ -46,7 +48,7 @@ public class CuraTestCases {
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment
 				.VerifyHealthCareCenter("Hongkong CURA Healthcare Center");
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.ReadMission("Yes");
-		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.HealthcareProgram("Medicare");
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.HealthcareProgram("MMedicare");
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.Visitdate();
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.Commet(
 				"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
@@ -55,7 +57,7 @@ public class CuraTestCases {
 
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.homepage.ClickHomePage();
-		Report.createnode("Seoul Appointment");
+		Report.createNode("Seoul Appointment");
 		BaseClass_CuraHealthcare.Sleep();
 		curafrontmethods.loginpage.seoulappointment.MakeSeoulAppointmentDetails("Seoul CURA Healthcare Center",
 				"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
@@ -63,7 +65,7 @@ public class CuraTestCases {
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment
 				.VerifyHealthCareCenter("Seoul CURA Healthcare Center");
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.ReadMission("Yes");
-		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.HealthcareProgram("Medicaid");
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.HealthcareProgram("MMedicaid");
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.Visitdate();
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.Commet(
 				"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
@@ -74,8 +76,9 @@ public class CuraTestCases {
 		Verify.assertAll();
 	}
 
-	@AfterSuite()
-	public void AfterSuite() {
+	@AfterMethod()
+	public void AfterSuite(ITestResult result) {
+		Report.getResult(result);
 		BaseClass_CuraHealthcare.StopDriver();
 		Report.flush();
 	}

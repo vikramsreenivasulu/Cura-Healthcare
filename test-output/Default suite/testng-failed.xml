@@ -6,8 +6,8 @@
       <class name="CuraTestCases.CuraTestCases">
         <methods>
           <include name="AfterSuite"/>
-          <include name="BeforeSuite"/>
           <include name="ATTest"/>
+          <include name="BeforeSuite"/>
         </methods>
       </class> <!-- CuraTestCases.CuraTestCases -->
     </classes>
