@@ -48,7 +48,7 @@ public class CuraTestCases {
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment
 				.VerifyHealthCareCenter("Hongkong CURA Healthcare Center");
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.ReadMission("Yes");
-		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.HealthcareProgram("MMedicare");
+		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.HealthcareProgram("Medicare");
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.Visitdate();
 		curafrontmethods.loginpage.hongkongappointment.verifyHongKongAppointment.Commet(
 				"The medical beauty industry in Hong Kong is experiencing rapid growth but faces regulatory challenges, with a lack of clear definitions for services leading to safety concerns and a surge in complaints");
@@ -65,7 +65,7 @@ public class CuraTestCases {
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment
 				.VerifyHealthCareCenter("Seoul CURA Healthcare Center");
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.ReadMission("Yes");
-		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.HealthcareProgram("MMedicaid");
+		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.HealthcareProgram("Medicaid");
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.Visitdate();
 		curafrontmethods.loginpage.seoulappointment.verifyseoulappointment.Commet(
 				"Seoul is a top global destination for medical tourism, offering advanced, cost-effective healthcare, including specialized, high-tech, and wellness services");
